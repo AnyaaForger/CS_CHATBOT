@@ -1,0 +1,99 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - bot_challenge
+  - membership
+  - goals
+  - inform
+
+entities:
+  - name
+  - number
+  - email
+  - city
+
+slots:
+  name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: name
+  number:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: number
+  email:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: email
+  city:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: city
+
+forms:
+  Form_Info:
+    required_slots:
+      - name
+      - number
+      - email
+      - city
+
+actions:
+- action_data_collection
+- action_save_data
+- action_read_data
+- action_reset_all_slots
+
+responses:
+  utter_greet:
+  - text: "Halo! Selamat datang di layanan pelanggan K-Gym. Mohon untuk mengisi form berikut."
+
+  utter_purpose:
+  - text: "Bagaimana saya bisa membantu Anda hari ini?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_membership:
+  - text: "Tentu saja! Kami memiliki berbagai pilihan keanggotaan untuk memenuhi kebutuhan Anda. Untuk membantu Anda lebih baik, bisakah Anda memberi tahu saya tujuan kebugaran Anda dan seberapa sering Anda berencana untuk mengunjungi gym?"
+
+  utter_goals:
+  - text: "Bagus! Berdasarkan itu, kami memiliki beberapa pilihan. Kami menawarkan keanggotaan standar, premium, dan keanggotaan khusus untuk pelajar.\n1. Keanggotaan standar memberikan akses ke fasilitas gym kami selama jam biasa.\n2. Keanggotaan premium mencakup akses ke fasilitas gym kami, serta kelas eksklusif dan jam operasional yang lebih lama.\n3. Jika Anda seorang pelajar, kami memiliki tarif khusus untuk Anda.\nJenis keanggotaan mana yang ingin Anda ketahui lebih lanjut?"
+
+  utter_ask_name:
+  - text: "Hey there! What's your name?"
+
+  utter_ask_number:
+  - text: "Can I get your phone number please?"
+
+  utter_ask_email:
+  - text: "May I know your email please?"
+
+  utter_ask_city:
+  - text: "In which city do you live?"
+

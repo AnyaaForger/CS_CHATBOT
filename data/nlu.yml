@@ -1,0 +1,83 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - Halo
+    - Hai
+    - Woe
+    - Oe
+    - woe
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+- intent: membership
+  examples: |
+    - Hai! Saya tertarik untuk bergabung di gym Anda. Bisakah Anda memberi tahu saya tentang berbagai jenis keanggotaan yang Anda tawarkan?
+    - Saya ingin bergabung
+    - Bagi info membershipnya dong
+    - Kalo mau join gimana ya?
+    - Harganya berapa?
+- intent: goals
+  examples: |
+    - Saya ingin menjaga bentuk tubuh dan berolahraga sekitar 3-4 kali seminggu
+    - Saya ingin memiliki badang seperti Ade Rai
+    - Saya ingin memiliki perut kotak''
+    - Saya ingin sixpack
+    - saya ingin berotot
+    - Gada sih iseng doang
+    - buat bakar duit aja
+    - ingin melihat wanita
+- intent: inform
+  examples: |
+    - [081581219283](number)
+    - This is my phone number [62129318231](number)
+    - Here you go [089571283890](number)
+    - My phone number is [8192831023](number)
+    - My name is [BONDAN](name)
+    - I am [Ajay](name)
+    - People call me [Sherly](name)
+    - [Anubarak](name)
+    - I live in [New York](city)
+    - I am from [California](city)
+    - My city is [Tangerang](city)
+    - [Mozia](city)
+    - My email is [ggwp@gmail.com](email)
+    - [anyaa.forg@gmail.com](email)
+    - This is my email [sdb.123@yahoo.com](email)
+    - Saya mau berangkat [Jakarta](departure) ke [Solo](arrival)
+    - [bondan]{"entity": "name", "value": "BONDAN"}
+    - [91293192391](number)
+    - [bondan@gmail.com](email)
+    - [mozia]{"entity": "city", "value": "Mozia"}

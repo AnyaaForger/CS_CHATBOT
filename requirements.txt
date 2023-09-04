@@ -1,0 +1,5 @@
+rasa
+googletrans==3.1.0a0
+pandas
+openpyxl
+pypyodbc
