@@ -7,6 +7,7 @@ nlu:
     - Woe
     - Oe
     - woe
+
 - intent: goodbye
   examples: |
     - cu
@@ -19,6 +20,9 @@ nlu:
     - see you around
     - bye bye
     - see you later
+    - terima kasih
+    - thank you
+
 - intent: affirm
   examples: |
     - yes
@@ -27,6 +31,7 @@ nlu:
     - of course
     - that sounds good
     - correct
+
 - intent: deny
   examples: |
     - no
@@ -36,12 +41,14 @@ nlu:
     - don't like that
     - no way
     - not really
+
 - intent: bot_challenge
   examples: |
     - are you a bot?
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+
 - intent: membership
   examples: |
     - Hai! Saya tertarik untuk bergabung di gym Anda. Bisakah Anda memberi tahu saya tentang berbagai jenis keanggotaan yang Anda tawarkan?
@@ -49,6 +56,7 @@ nlu:
     - Bagi info membershipnya dong
     - Kalo mau join gimana ya?
     - Harganya berapa?
+
 - intent: goals
   examples: |
     - Saya ingin menjaga bentuk tubuh dan berolahraga sekitar 3-4 kali seminggu
@@ -59,6 +67,7 @@ nlu:
     - Gada sih iseng doang
     - buat bakar duit aja
     - ingin melihat wanita
+
 - intent: inform
   examples: |
     - [081581219283](number)
@@ -81,3 +90,59 @@ nlu:
     - [91293192391](number)
     - [bondan@gmail.com](email)
     - [mozia]{"entity": "city", "value": "Mozia"}
+
+- intent: membership_preference
+  examples: |
+    - Saya tertarik dengan keanggotaan [premium](membership_type). Apa rinciannya dan berapa harganya?
+    - kalau yang [standard](membership_type) info lengkapnya bagaimana ya?
+    - boleh tau yg paket [miskin](membership_type)?
+    - [premium](membership_type)
+
+- synonym: BONDAN
+  examples: |
+    - bondan
+
+- synonym: Mozia
+  examples: |
+    - mozia
+
+- intent: payment
+  examples: |
+    - Bagaimana cara saya melakukan pembayaran?
+    - Saya ingin tahu langkah-langkah untuk melakukan pembayaran.
+    - Bisakah Anda jelaskan proses pembayaran?
+    - Mohon beri saya panduan tentang pembayaran.
+    - Tolong berikan informasi tentang metode pembayaran yang tersedia.
+    - Bagaimana cara membayar tagihan saya?
+    - Apakah ada pilihan pembayaran lain yang bisa saya gunakan?
+    - Saya tidak tahu cara membayar, tolong berikan petunjuknya.
+    - Saya ingin mengetahui detil pembayaran.
+    - Cara pembayaran apa yang paling umum digunakan?
+    - Adakah batas waktu untuk melakukan pembayaran?
+
+- intent: membership_starting_1
+  examples: |
+    - Setelah mendaftar, langkah apa yang harus saya ikuti selanjutnya?
+    - Mohon beri saya petunjuk tentang tindakan berikutnya setelah pendaftaran.
+    - Saya sudah mendaftar, tetapi saya tidak tahu apa yang harus dilakukan selanjutnya.
+    - Apakah ada tahapan yang harus saya lewati setelah mendaftar?
+    - Saya butuh panduan setelah berhasil mendaftar.
+    - Bagaimana cara memulai setelah pendaftaran selesai?
+    - Apa yang menjadi langkah pertama setelah mendaftar?
+    - Saya ingin tahu prosedur selanjutnya setelah mendaftar.
+    - Setelah pendaftaran, apa yang perlu saya persiapkan?
+    - Saya baru mendaftar, apa yang seharusnya saya lakukan sekarang?
+
+- intent: membership_starting_2
+  examples: |
+    - Apakah ada kontak yang dapat saya hubungi jika saya memiliki pertanyaan tentang keanggotaan saya?
+    - Saya ingin tahu cara menghubungi seseorang jika ada masalah dengan keanggotaan saya.
+    - Siapa yang bisa memberikan informasi tentang klub atau keanggotaan?
+    - Saya perlu berbicara dengan seseorang tentang detail keanggotaan saya, kepada siapa saya harus menghubungi?
+    - Jika saya memiliki pertanyaan tentang klub, kepada siapa saya harus mengajukan pertanyaan saya?
+    - Apakah ada nomor telepon atau email yang bisa saya gunakan untuk bertanya tentang keanggotaan?
+    - Saya ingin berbicara dengan seseorang tentang masalah keanggotaan saya, kepada siapa saya harus menghubungi?
+    - Jika ada pertanyaan tentang keanggotaan, siapa yang akan membantu saya?
+    - Saya perlu menghubungi seseorang tentang keanggotaan klub, tetapi saya tidak tahu ke siapa saya harus berbicara.
+    - Bagaimana cara saya mencari bantuan tentang pertanyaan keanggotaan saya?
+

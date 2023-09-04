@@ -13,8 +13,8 @@ CREATE TABLE gym_membership (
     session int NULL
 );
 
-ALTER TABLE gym_membership
-ADD member_goals_info NVARCHAR(500)
+-- ALTER TABLE gym_membership
+-- ADD member_goals_info NVARCHAR(500)
 
 CREATE TABLE prospect_member (
     id INT IDENTITY(1,1) PRIMARY KEY,
@@ -24,3 +24,9 @@ CREATE TABLE prospect_member (
 	city NVARCHAR(255) NULL,
 	member_goals NVARCHAR(255) NULL
 );
+
+insert into gym_membership 
+(name, price, session) values 
+('premium', 275000, 2),
+('standard', 325000, 1),
+('miskin', 385000, 0)

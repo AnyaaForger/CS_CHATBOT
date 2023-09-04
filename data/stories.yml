@@ -2,149 +2,33 @@ version: "3.1"
 
 stories:
 
-# - story: activate form loop
-#   steps:
-#   - intent: greet
-#   - action: utter_greet
-#   - action: Form_Info
-#   - active_loop: Form_Info
-
-- story: submit form affirm
+- story: gym_membership
   steps:
-  - intent: inform
-    entities:
-    - name: null
-  - slot_was_set:
-    - requested_slot: name
-  - intent: inform
-    entities:
-    - number: null
-  - slot_was_set:
-    - requested_slot: number
-  - intent: inform
-    entities:
-    - email: null
-  - slot_was_set:
-    - requested_slot: email
-  - intent: inform
-    entities:
-    - city: null
-  - slot_was_set:
-    - requested_slot: city
-  - action: Form_Info
-  - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
-  - action: action_data_collection
-  - intent: affirm
-  - action: action_save_data
-  - action: action_reset_all_slots
   - intent: membership
   - action: utter_membership
   - intent: goals
   - action: utter_goals
 
-# - story: lanjutan rule
-#   steps:
-#   - action: action_reset_all_slots
-#   - action: utter_purpose
-#   - intent: membership
-#   - action: utter_membership
-#   - intent: goals
-#   - action: utter_goals
+- story: gym_membership_description
+  steps:
+  - intent: membership_preference
+    entities:
+    - membership_type: null
+  - slot_was_set:
+    - membership_type: null
+  - action: action_read_membership_type
+  - action: action_reset_all_slots
 
-# - story: interactive_story_1
-#   steps:
-#   - intent: greet
-#   - action: utter_greet
-#   - action: Form_Info
-#   - active_loop: Form_Info
-#   - slot_was_set:
-#     - requested_slot: name
-#   - intent: inform
-#     entities:
-#     - name: BONDAN
-#   - slot_was_set:
-#     - name: BONDAN
-#   - action: Form_Info
-#   - slot_was_set:
-#     - requested_slot: number
-#   - intent: inform
-#     entities:
-#     - number: '199319293192'
-#   - slot_was_set:
-#     - number: '199319293192'
-#   - action: Form_Info
-#   - slot_was_set:
-#     - requested_slot: email
-#   - intent: inform
-#     entities:
-#     - email: bondan@gmail.com
-#   - slot_was_set:
-#     - email: bondan@gmail.com
-#   - action: Form_Info
-#   - slot_was_set:
-#     - requested_slot: city
-#   - intent: inform
-#     entities:
-#     - city: Mozia
-#   - slot_was_set:
-#     - city: Mozia
-#   - action: Form_Info
-#   - slot_was_set:
-#     - requested_slot: null
-#   - active_loop: null
-#   - action: action_data_collection
-#   - intent: affirm
-#   - action: action_save_data
-#   - action: action_reset_all_slots
-#   - action: utter_purpose
-#   - intent: membership
-#   - action: utter_membership
-#   - intent: goals
-#   - action: utter_goals
+- story: faq_payment
+  steps:
+  - intent: payment
+  - action: utter_payment
+  - action: action_restart
 
-# - story: interactive_story_1
-#   steps:
-#   - intent: greet
-#   - action: utter_greet
-#   - action: Form_Info
-#   - active_loop: Form_Info
-#   - slot_was_set:
-#     - requested_slot: name
-#   - intent: inform
-#     entities:
-#     - name: BONDAN
-#   - slot_was_set:
-#     - name: BONDAN
-#   - action: Form_Info
-#   - slot_was_set:
-#     - requested_slot: number
-#   - intent: inform
-#     entities:
-#     - number: '91293192391'
-#   - slot_was_set:
-#     - number: '91293192391'
-#   - action: Form_Info
-#   - slot_was_set:
-#     - requested_slot: email
-#   - intent: inform
-#     entities:
-#     - email: bondan@gmail.com
-#   - slot_was_set:
-#     - email: bondan@gmail.com
-#   - action: Form_Info
-#   - slot_was_set:
-#     - requested_slot: city
-#   - intent: inform
-#     entities:
-#     - city: Mozia
-#   - slot_was_set:
-#     - city: Mozia
-#   - action: Form_Info
-#   - slot_was_set:
-#     - requested_slot: null
-#   - active_loop: null
-#   - action: action_data_collection
-#   - intent: affirm
-#   - action: action_save_data
+- story: faq_membership_starting
+  steps:
+  - intent: membership_starting_1
+  - action: utter_membership_starting_1
+  - intent: membership_starting_2
+  - action: utter_membership_starting_2
+  - action: action_restart

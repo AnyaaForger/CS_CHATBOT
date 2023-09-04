@@ -3,7 +3,7 @@ import pandas as pd
 import os
 
 DRIVER_NAME = "SQL SERVER"
-SERVER_NAME = "IDEAPAD-HANS"
+SERVER_NAME = "DESKTOP-TS9Q2CR"
 DATABASE_NAME = "cs_chatbot"
 
 def DataStore(name, number, email, city):
@@ -60,6 +60,20 @@ def ReadDataDB(column, place, table_name):
     rows = cursor.fetchall()
     print(rows)
     data = [row[0] for row in rows]
+    cursor.close()
+    conn.close()
+
+    return data
+
+def ReadDataMembershipType(membership_type, table_name):
+    conn = DBConnect()
+    cursor = conn.cursor()
+    cursor.execute(f"SELECT * FROM {table_name} WHERE name='{membership_type}'")
+    rows = cursor.fetchall()
+    print(rows)
+    data = [value for value in rows[0]]
+
+    print(data)
     cursor.close()
     conn.close()
 

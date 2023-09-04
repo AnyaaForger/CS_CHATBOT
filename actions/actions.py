@@ -11,9 +11,10 @@ from typing import Any, Text, Dict, List
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.events import AllSlotsReset
+from rasa_sdk.events import AllSlotsReset, Restarted
 
-from store_read_data import DataRead, DataStore, StoreDataDB, ReadDataDB
+from store_read_data import DataRead, DataStore, StoreDataDB, ReadDataDB, ReadDataMembershipType
+from decimal import Decimal
 
 class ActionHelloWorld(Action):
 
@@ -59,7 +60,7 @@ class ActionSaveData(Action):
         number = tracker.get_slot("number")
         email = tracker.get_slot("email")
         city = tracker.get_slot("city")
-        print(name, number, email, city)
+        print("Action Save Data...")
         # DataStore(name, number, email, city)
         StoreDataDB(name, number, email, city, "prospect_member")
         dispatcher.utter_message(text="Data Anda sudah berhasil kami simpan. Selanjutnya bagaimana saya bisa membantu Anda?")
@@ -93,4 +94,35 @@ class ActionResetAllSlots(Action):
         return "action_reset_all_slots"
     
     def run(self, dispatcher, tracker, domain):
+        print("Reset Slot...")
         return [AllSlotsReset()]
+    
+class ActionReadMembershipType(Action):
+
+    def name(self) -> Text:
+        return "action_read_membership_type"
+    
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        print("READ DATA: ")
+        membership_type = tracker.latest_message['entities'][0]['value']
+        output = ReadDataMembershipType(membership_type, "gym_membership")
+        print("output: ")
+        print(output)
+        if(len(output) >= 4):
+            id, name, price, session = output
+            print(float(price))
+            dispatcher.utter_message(text=f"Pilihan yang sangat bagus! Keanggotaan {name} kami mencakup seluruh akses ke fasilitas gym kami, kelas eksklusif, dan jam operasional yang lebih lama.\nDengan harga Rp{price}/bulan dan sesi gratis dengan coach selama {session} jam.")
+        else:
+            dispatcher.utter_message(text=f"Tipe membership {membership_type} belum tersedia di gym kami...")
+        
+        return []
+    
+class ActionRestart(Action):
+
+    def name(self):
+        return "action_restart"
+
+    def run(self, dispatcher, tracker, domain):
+        return [Restarted()]
